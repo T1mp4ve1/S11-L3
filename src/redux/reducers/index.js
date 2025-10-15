@@ -27,7 +27,9 @@ const mainReducer = (state = initialState, action) => {
     case "REMOVE_FROM_FAVOURITES":
       return {
         ...state,
-        favourites: [...state.favourites, action.payload],
+        favourites: state.favourites.filter(
+          (company) => company !== action.payload
+        ),
       };
 
     default:
